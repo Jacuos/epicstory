@@ -28,8 +28,8 @@ public class DialogNode {
 		//Debug.Log("MESSAGE: "+message);
 		for (int i = 1; i < splitted.Length; i++ )
 		{
-			neighbourList.Add(splitted[i],new DialogNode());
-			Debug.Log("OPTION: " + splitted[i]);
+			neighbourList.Add(splitted[i].Trim(), new DialogNode());
+			//Debug.Log("OPTION: " + splitted[i]);
 		}
 	}
 }

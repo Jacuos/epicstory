@@ -32,12 +32,11 @@ public class NPCLoadDialog : MonoBehaviour
 		{
 			if (reader.Name == "tw-passagedata" && reader.NodeType == XmlNodeType.Element)
 			{
-				nodeName = reader.GetAttribute("name");
+				nodeName = reader.GetAttribute("name").Trim();
 				isPassageNode = true;
 			}
 			else if(isPassageNode)
 			{
-				//Debug.Log(nodeName +": "+reader.Value);
 				dialog.Add(nodeName, new DialogNode(nodeName, reader.Value));
 				isPassageNode = false;
 				nodeName = "";
@@ -65,7 +64,6 @@ public class NPCLoadDialog : MonoBehaviour
 		List<string> nodes = new List<string>(dialog.Keys);
 		foreach (string node in nodes)
 		{
-			Debug.Log("DICT-STATE: " + node);
 			List<string> neighbours = new List<string>(dialog[node].neighbourList.Keys);
 			foreach(string neighbour in neighbours)
 			{
